@@ -34,6 +34,7 @@ const server = http.createServer((request, response) => {
                                                <th scope="col">First Name</th>
                                                <th scope="col">Last Name</th>
                                                <th scope="col">Phone</th>
+                                               <th scope="col">Gender</th>
                                        </tr>
                                </thead>
                                <tbody>
@@ -46,6 +47,7 @@ const server = http.createServer((request, response) => {
 	                                                       <td>${friends[key][f]["firstName"]}</td>
 	                                                       <td>${friends[key][f]["lastName"]}
 	                                                       <td>${friends[key][f]["phone"]}
+	                                                       <td>${friends[key][f]["gender"]}
 	                                               </tr>
 `
 	            );
