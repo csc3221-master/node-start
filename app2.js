@@ -19,14 +19,15 @@ const server = http.createServer((request, response) => {
                        <meta http-equiv="X-UA-Compatible" content="IE=edge">
                        <meta name="viewport" content="width=device-width, initial-scale=1">
                        <meta name="description" content="Home Page">
-                       <meta name="author" content="Carlos Arias">
-                       <title>Netcentric Computing Home Page</title>
+                       <meta name="author" content="Michael Bryant">
+                       <title>I Told You They're Not Imaginary!</title>
                        <!-- Bootstrap core CSS -->
 						<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
                </head>
                 <body>
                        <div class="container" style="text-align: center">
-                       <h1>Another Example of Node</h1><br>
+                       <h1>A List of My Friends</h1>
+                       <hr/>
                        <p>Current time is: ${currentDate}</p>`
     );
 	for (var key in friends) {
