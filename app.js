@@ -1,6 +1,9 @@
 const http = require('http');
-const hostname = 'localhost';
-const port = 3000;
+const fs = require('fs');
+var config = {};
+if (fs.existsSync('./config.json')) config = require('./config.json');
+const hostname = config.hostname || 'localhost';
+const port = config.port || 3005;
 
 var friends = require("./friends.json"); // Once for all times
 
