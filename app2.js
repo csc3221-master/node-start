@@ -5,7 +5,7 @@ if (fs.existsSync('./config.json')) config = require('./config.json');
 const hostname = config.hostname || 'localhost';
 const port = config.port || 3005;
 
-var friends = require("./friends.json"); // Once for all times
+var friends = require("./friends2.json"); // Once for all times
 
 const server = http.createServer((request, response) => {
     response.statusCode = 200;
@@ -28,35 +28,39 @@ const server = http.createServer((request, response) => {
                        <div class="container" style="text-align: center">
                        <h1>A List of My Friends</h1>
                        <hr/>
-                       <p>Current time is: ${currentDate}</p>
+                       <p>Current time is: ${currentDate}</p>`
+    );
+	for (var key in friends) {
+            response.write(`
+                       <h2>${key.toUpperCase()}</h2>
                        <table class="table table-bordered table-hover">
                                <thead>
                                        <tr>
                                                <th scope="col">First Name</th>
                                                <th scope="col">Last Name</th>
                                                <th scope="col">Phone</th>
-                                               <th scope="col">Gender</th>
                                        </tr>
                                </thead>
-                               <tbody>
-`
-    );
-	for (var key in friends)
-	        for (var f in friends[key])
+                               <tbody>`
+            );
+	        for (var f in friends[key]) {
 	            response.write(
 	                `                               <tr>
 	                                                       <td>${friends[key][f]["firstName"]}</td>
 	                                                       <td>${friends[key][f]["lastName"]}
 	                                                       <td>${friends[key][f]["phone"]}
-	                                                       <td>${friends[key][f]["gender"]}
 	                                               </tr>
 `
 	            );
+            }
+            response.write(
+            `                       </tbody>
+	                       </table>`
+            );
+    }
 
 	    response.write(
-	        `                       </tbody>
-	                       </table>
-	               </body>
+	        `       </body>
 	        </html>`
 	    );
 	    response.end();
